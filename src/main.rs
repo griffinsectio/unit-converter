@@ -8,6 +8,14 @@ use weight::*;
 use dialoguer::{Confirm, Input, Select};
 use console::Term;
 
+trait Unit {
+    fn value(&self) -> f64;
+    fn symbol(&self) -> String;
+    fn show_conversion_result(&self) {
+        println!("The result is {:.2}{}", self.value(), self.symbol())
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -72,7 +80,6 @@ mod tests {
         assert_eq!("355.50K", format!("{:.2}{}", conversion_result.value, conversion_result.symbol))
     }
 }
-
 
 fn main() {
     loop {

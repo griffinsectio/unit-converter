@@ -7,28 +7,28 @@ pub struct Celsius {
 
 impl Celsius {
     fn new(value: f64, symbol: String) -> Self {
-        Celsius {
-            value,
-            symbol
-        }
+        Celsius {value, symbol}
+    }
+}
+
+impl Unit for Celsius {
+    fn value(&self) -> f64 {
+        self.value
+    }
+    fn symbol(&self) -> String {
+        self.symbol.to_string()
     }
 }
 
 impl From<Fahrenheit> for Celsius {
     fn from(unit: Fahrenheit) -> Self {
-        Celsius {
-            value: ((unit.value as f64 - 32.0) * 5.0) / 9.0,
-            symbol: "C".to_string(),
-        }
+        Celsius {value: ((unit.value as f64 - 32.0) * 5.0) / 9.0, symbol: "C".to_string()}
     }
 }
 
 impl From<Kelvin> for Celsius {
     fn from(unit: Kelvin) -> Self {
-        Celsius {
-            value: unit.value as f64 - 273.15,
-            symbol: "C".to_string(),
-        }
+        Celsius {value: unit.value as f64 - 273.15, symbol: "C".to_string()}
     }
 }
 
@@ -37,30 +37,30 @@ pub struct Fahrenheit {
     pub symbol: String,
 }
 
+impl Unit for Fahrenheit {
+    fn value(&self) -> f64 {
+        self.value
+    }
+    fn symbol(&self) -> String {
+        self.symbol.to_string()
+    }
+}
+
 impl Fahrenheit {
     fn new(value: f64, symbol: String) -> Self {
-        Fahrenheit {
-            value,
-            symbol
-        }
+        Fahrenheit {value, symbol}
     }
 }
 
 impl From<Celsius> for Fahrenheit {
     fn from(unit: Celsius) -> Self {
-        Fahrenheit {
-            value: ((unit.value as f64 * 9.0) / 5.0) + 32.0,
-            symbol: "F".to_string(),
-        }
+        Fahrenheit {value: ((unit.value as f64 * 9.0) / 5.0) + 32.0, symbol: "F".to_string()}
     }
 }
 
 impl From<Kelvin> for Fahrenheit {
     fn from(unit: Kelvin) -> Self {
-        Fahrenheit {
-            value: (((unit.value as f64 - 273.15) * 9.0) / 5.0) + 32.0,
-            symbol: "F".to_string(),
-        }
+        Fahrenheit {value: (((unit.value as f64 - 273.15) * 9.0) / 5.0) + 32.0, symbol: "F".to_string()}
     }
 }
 
@@ -69,30 +69,30 @@ pub struct Kelvin {
     pub symbol: String,
 }
 
+impl Unit for Kelvin {
+    fn value(&self) -> f64 {
+        self.value
+    }
+    fn symbol(&self) -> String {
+        self.symbol.to_string()
+    }
+}
+
 impl Kelvin {
     fn new(value: f64, symbol: String) -> Self {
-        Kelvin {
-            value,
-            symbol
-        }
+        Kelvin {value, symbol}
     }
 }
 
 impl From<Celsius> for Kelvin {
     fn from(unit: Celsius) -> Self {
-        Kelvin {
-            value: unit.value as f64 + 273.15,
-            symbol: "K".to_string()
-        }
+        Kelvin {value: unit.value as f64 + 273.15, symbol: "K".to_string()}
     }
 }
 
 impl From<Fahrenheit> for Kelvin {
     fn from(unit: Fahrenheit) -> Self {
-        Kelvin {
-            value: (((unit.value as f64 - 32.0) * 5.0) / 9.0) + 273.15,
-            symbol: "K".to_string()
-        }
+        Kelvin {value: (((unit.value as f64 - 32.0) * 5.0) / 9.0) + 273.15, symbol: "K".to_string()}
     }
 }
 
