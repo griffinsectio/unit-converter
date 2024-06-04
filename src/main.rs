@@ -136,9 +136,9 @@ impl From<Fahrenheit> for Kelvin {
 }
 
 fn temperature(term: &Term) {
-    let units = vec!["Celcius", "Fahrenheit", "Kelvin", "back"];
+    let units = vec!["Celsius", "Fahrenheit", "Kelvin", "back"];
     let mut first_unit: String;
-    let mut first_unit_value: f64;
+    let mut unit_value: f64;
     let mut second_unit: String;
 
     loop {
@@ -155,7 +155,7 @@ fn temperature(term: &Term) {
         }
 
         first_unit = units[first_choice].to_string();
-        first_unit_value = Input::new()
+        unit_value = Input::new()
         .with_prompt("The value")
         .interact_text()
         .unwrap();
@@ -176,29 +176,50 @@ fn temperature(term: &Term) {
         break
     }
 
-    if first_unit == "Celcius".to_string() {
+    if first_unit == "Celsius".to_string() {
+        let celsius = Celsius { value: unit_value, symbol: "C".to_string() };
         if second_unit == "Fahrenheit".to_string() {
-            println!("The result is {:.2} F", (first_unit_value as f64 * 1.8) + 32.0)
+
+            let fahrenheit = Fahrenheit::from(celsius);
+            println!("The result is {:.2}{}", fahrenheit.value, fahrenheit.symbol);
+
         } else if second_unit == "Kelvin".to_string() {
-            println!("The result is {:.2} K", first_unit_value as f64 + 273.15)
+
+            let kelvin = Kelvin { value: unit_value, symbol: "K".to_string() };
+            println!("The result is {:.2}{}", kelvin.value, kelvin.symbol)
+
         } else {
-            println!("The result is {} C", first_unit_value)
+            println!("The result is {}{}", celsius.value, celsius.symbol)
         }
     } else if first_unit == "Fahrenheit".to_string() {
-        if second_unit == "Celcius".to_string() {
-            println!("The result is {:.2} C", (first_unit_value as f64 - 32.0) / 1.8)
+        let fahrenheit = Fahrenheit {value: unit_value, symbol: "F".to_string()};
+        if second_unit == "Celsius".to_string() {
+
+            let celsius = Celsius::from(fahrenheit);
+            println!("The result is {:.2}{}", celsius.value, celsius.symbol)
+
         } else if second_unit == "Kelvin".to_string() {
-            println!("The result is {:.2} K", ((first_unit_value as f64 - 32.0) /1.8) + 273.15)
+
+            let kelvin = Kelvin::from(fahrenheit);
+            println!("The result is {:.2}{}", kelvin.value, kelvin.symbol)
+
         } else {
-            println!("The result is {} F", first_unit_value)
+            println!("The result is {}{}", fahrenheit.value, fahrenheit.symbol)
         }
     } else if first_unit == "Kelvin".to_string() {
-        if second_unit == "Celcius".to_string() {
-            println!("The result is {} C", first_unit_value as f64 - 273.15)
+        let kelvin = Kelvin {value: unit_value, symbol: "K".to_string()};
+        if second_unit == "Celsius".to_string() {
+
+            let celsius = Celsius::from(kelvin);
+            println!("The result is {:.2}{}", celsius.value, celsius.symbol);
+
         } else if second_unit == "Fahrenheit".to_string() {
-            println!("The result is {} F", ((first_unit_value as f64 + 273.15) * 1.8) + 32.0)
+
+            let fahrenheit = Fahrenheit::from(kelvin);
+            println!("The result is {:.2}{}", fahrenheit.value, fahrenheit.symbol)
+
         } else {
-            println!("The result is {} K", first_unit_value)
+            println!("The result is {:.2}{}", kelvin.value, kelvin.symbol)
         }
     }
     let confirmation = Confirm::new()
