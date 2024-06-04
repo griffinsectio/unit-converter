@@ -1,7 +1,7 @@
 use dialoguer::{Confirm, Input, Select};
 use console::Term;
 
-fn temperature_units(term: &Term) {
+fn temperature(term: &Term) {
     let units = vec!["Celcius", "Fahrenheit", "Kelvin", "back"];
     let mut first_unit: String;
     let mut first_unit_value: f64;
@@ -76,12 +76,12 @@ fn temperature_units(term: &Term) {
 
     if confirmation {
         term.clear_screen().unwrap();
-        temperature_units(term)
+        temperature(term)
     }
     term.clear_screen().unwrap();
 }
 
-fn length_units(term: &Term) {
+fn length(term: &Term) {
     let units = vec!["Mile", "Meter", "Feet", "Inch", "back"];
     let mut first_unit: String;
     let mut first_unit_value: f64;
@@ -172,12 +172,12 @@ fn length_units(term: &Term) {
 
     if confirmation {
         term.clear_screen().unwrap();
-        length_units(term)
+        length(term)
     }
     term.clear_screen().unwrap();
 }
 
-fn weight_unit(term: &Term) {
+fn weight(term: &Term) {
     let units = vec!["Gram", "Ounce", "Pound", "back"];
     let mut first_unit: String;
     let mut first_unit_value: f64;
@@ -252,7 +252,7 @@ fn weight_unit(term: &Term) {
 
     if confirmation {
         term.clear_screen().unwrap();
-        weight_unit(term)
+        weight(term)
     }
     term.clear_screen().unwrap();
 }
@@ -272,11 +272,11 @@ fn main() {
         term.clear_screen().unwrap();
     
         if main_menu == 0 {
-            temperature_units(&term);
+            temperature(&term);
         } else if main_menu == 1 {
-            length_units(&term);
+            length(&term);
         } else if main_menu == 2 {
-            weight_unit(&term)
+            weight(&term)
         } else if main_menu == 3 {
             break;
         }
