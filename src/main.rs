@@ -185,7 +185,7 @@ fn temperature(term: &Term) {
 
         } else if second_unit == "Kelvin".to_string() {
 
-            let kelvin = Kelvin { value: unit_value, symbol: "K".to_string() };
+            let kelvin = Kelvin::from(celsius);
             println!("The result is {:.2}{}", kelvin.value, kelvin.symbol)
 
         } else {
