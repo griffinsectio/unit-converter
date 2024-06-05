@@ -275,6 +275,7 @@ impl From<Kilometer> for Inch {
         }
     }
 }
+
 impl From<Meter> for Inch {
     fn from(unit: Meter) -> Self {
         Inch {
@@ -283,6 +284,7 @@ impl From<Meter> for Inch {
         }
     }
 }
+
 impl From<Feet> for Inch {
     fn from(unit: Feet) -> Self {
         Inch {
@@ -338,70 +340,70 @@ pub fn length(term: &Term) {
         let mile = Mile::new(unit_value, "mi".to_string());
 
         if second_unit == "Kilometer".to_string() {
-            Kilometer::from(mile).show_conversion_result()
+            Kilometer::from(mile).show_value()
         } else if second_unit == "Meter".to_string() {
-            Meter::from(mile).show_conversion_result()
+            Meter::from(mile).show_value()
         } else if second_unit == "Feet".to_string() {
-            Feet::from(mile).show_conversion_result()
+            Feet::from(mile).show_value()
         } else if second_unit == "Inch".to_string() {
-            Inch::from(mile).show_conversion_result()
+            Inch::from(mile).show_value()
         } else {
-            println!("The result is {:.2}{}", mile.value, mile.symbol)
+            mile.show_value()
         }
     } else if first_unit == "Kilometer"{
         let kilometer = Kilometer::new(unit_value, "km".to_string());
         if second_unit == "Mile".to_string() {
-            Mile::from(kilometer).show_conversion_result()
+            Mile::from(kilometer).show_value()
         } else if second_unit == "Meter".to_string() {
-            Meter::from(kilometer).show_conversion_result()
+            Meter::from(kilometer).show_value()
         } else if second_unit == "Feet".to_string() {
-            Feet::from(kilometer).show_conversion_result()
+            Feet::from(kilometer).show_value()
         } else if second_unit == "Inch".to_string() {
-            Inch::from(kilometer).show_conversion_result()
+            Inch::from(kilometer).show_value()
         } else {
-            println!("The result is {:.2}{}", kilometer.value, kilometer.symbol)
+            kilometer.show_value()
         }
     } else if first_unit == "Meter".to_string() {
         let meter = Meter::new(unit_value, "km".to_string());
 
         if second_unit == "Mile".to_string() {
-            Mile::from(meter).show_conversion_result()
+            Mile::from(meter).show_value()
         } else if second_unit == "Kilometer".to_string() {
-            Kilometer::from(meter).show_conversion_result()
+            Kilometer::from(meter).show_value()
         } else if second_unit == "Feet".to_string() {
-            Feet::from(meter).show_conversion_result()
+            Feet::from(meter).show_value()
         } else if second_unit == "Inch".to_string() {
-            Inch::from(meter).show_conversion_result()
+            Inch::from(meter).show_value()
         } else {
-            println!("The result is {:.2}{}", meter.value, meter.symbol)
+            meter.show_value()
         }
     } else if first_unit == "Feet".to_string() {
         let feet = Feet::new(unit_value, "km".to_string());
 
         if second_unit == "Mile".to_string() {
-            Mile::from(feet).show_conversion_result()
+            Mile::from(feet).show_value()
         } else if second_unit == "Kilometer".to_string() {
-            Kilometer::from(feet).show_conversion_result()
+            Kilometer::from(feet).show_value()
         } else if second_unit == "Meter".to_string() {
-            Meter::from(feet).show_conversion_result()
+            Meter::from(feet).show_value()
         } else if second_unit == "Inch".to_string() {
-            Inch::from(feet).show_conversion_result()
+            Inch::from(feet).show_value()
         } else {
-            println!("The result is {:.2}{}", feet.value, feet.symbol)
+            feet.show_value()
         }
     } else if first_unit == "Inch".to_string() {
         let inch = Inch::new(unit_value, "km".to_string());
 
         if second_unit == "Mile".to_string() {
-            Mile::from(inch).show_conversion_result()
+            Mile::from(inch).show_value()
         } else if second_unit == "Kilometer".to_string() {
-            Kilometer::from(inch).show_conversion_result()
+            Kilometer::from(inch).show_value()
         } else if second_unit == "Meter".to_string() {
-            Meter::from(inch).show_conversion_result()
+            Meter::from(inch).show_value()
         } else if second_unit == "Feet".to_string() {
-            Feet::from(inch).show_conversion_result()
+            Feet::from(inch).show_value()
         } else {
-            println!("The result is {:.2}{}", inch.value, inch.symbol)
+            inch.show_value()
         }
     }
     let confirmation = Confirm::new()

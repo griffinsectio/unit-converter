@@ -11,8 +11,8 @@ use console::Term;
 trait Unit {
     fn value(&self) -> f64;
     fn symbol(&self) -> String;
-    fn show_conversion_result(&self) {
-        println!("The result is {:.2}{}", self.value(), self.symbol())
+    fn show_value(&self) {
+        println!("The value is {:.2}{}", self.value(), self.symbol())
     }
 }
 

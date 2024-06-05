@@ -139,48 +139,33 @@ pub fn temperature(term: &Term) {
 
     if first_unit == "Celsius".to_string() {
         let celsius = Celsius::new(unit_value, "C".to_string());
+
         if second_unit == "Fahrenheit".to_string() {
-
-            let fahrenheit = Fahrenheit::from(celsius);
-            println!("The result is {:.2}{}", fahrenheit.value, fahrenheit.symbol);
-
+            Fahrenheit::from(celsius).show_value()
         } else if second_unit == "Kelvin".to_string() {
-
-            let kelvin = Kelvin::from(celsius);
-            println!("The result is {:.2}{}", kelvin.value, kelvin.symbol)
-
+            Kelvin::from(celsius).show_value()
         } else {
-            println!("The result is {}{}", celsius.value, celsius.symbol)
+            celsius.show_value()
         }
     } else if first_unit == "Fahrenheit".to_string() {
         let fahrenheit = Fahrenheit::new(unit_value, "F".to_string());
+
         if second_unit == "Celsius".to_string() {
-
-            let celsius = Celsius::from(fahrenheit);
-            println!("The result is {:.2}{}", celsius.value, celsius.symbol)
-
+            Celsius::from(fahrenheit).show_value()
         } else if second_unit == "Kelvin".to_string() {
-
-            let kelvin = Kelvin::from(fahrenheit);
-            println!("The result is {:.2}{}", kelvin.value, kelvin.symbol)
-
+            Kelvin::from(fahrenheit).show_value()
         } else {
-            println!("The result is {}{}", fahrenheit.value, fahrenheit.symbol)
+            fahrenheit.show_value()
         }
     } else if first_unit == "Kelvin".to_string() {
         let kelvin = Kelvin::new(unit_value, "K".to_string());
+
         if second_unit == "Celsius".to_string() {
-
-            let celsius = Celsius::from(kelvin);
-            println!("The result is {:.2}{}", celsius.value, celsius.symbol);
-
+            Celsius::from(kelvin).show_value()
         } else if second_unit == "Fahrenheit".to_string() {
-
-            let fahrenheit = Fahrenheit::from(kelvin);
-            println!("The result is {:.2}{}", fahrenheit.value, fahrenheit.symbol)
-
+            Fahrenheit::from(kelvin).show_value()
         } else {
-            println!("The result is {:.2}{}", kelvin.value, kelvin.symbol)
+            kelvin.show_value()
         }
     }
     let confirmation = Confirm::new()

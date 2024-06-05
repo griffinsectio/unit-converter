@@ -197,46 +197,46 @@ pub fn weight(term: &Term) {
     if first_unit == "Kilogram".to_string() {
         let kilogram = Kilogram::new(unit_value, "kg".to_string());
         if second_unit == "Gram".to_string() {
-            Gram::from(kilogram).show_conversion_result();
+            Gram::from(kilogram).show_value();
         } else if second_unit == "Ounce".to_string() {
-            Ounce::from(kilogram).show_conversion_result();
+            Ounce::from(kilogram).show_value();
         } else if second_unit == "Pound".to_string() {
-            Pound::from(kilogram).show_conversion_result();
+            Pound::from(kilogram).show_value();
         } else {
-            println!("The result is {:.2}{}", kilogram.value, kilogram.symbol)
+            kilogram.show_value()
         }
     } else if first_unit == "Gram".to_string() {
         let gram = Gram::new(unit_value, "g".to_string());
         if second_unit == "Kilogram".to_string() {
-            Kilogram::from(gram).show_conversion_result();
+            Kilogram::from(gram).show_value();
         } else if second_unit == "Ounce".to_string() {
-            Ounce::from(gram).show_conversion_result();
+            Ounce::from(gram).show_value();
         } else if second_unit == "Pound".to_string() {
-            Pound::from(gram).show_conversion_result();
+            Pound::from(gram).show_value();
         } else {
-            println!("The result is {:.2}{}", gram.value, gram.symbol)
+            gram.show_value()
         }
     } else if first_unit == "Ounce".to_string() {
         let ounce = Ounce::new(unit_value, "oz".to_string());
         if second_unit == "Kilogram" {
-            Kilogram::from(ounce).show_conversion_result()
+            Kilogram::from(ounce).show_value()
         } else if second_unit == "Gram".to_string() {
-            Gram::from(ounce).show_conversion_result()
+            Gram::from(ounce).show_value()
         } else if second_unit == "Pound".to_string() {
-            Pound::from(ounce).show_conversion_result()
+            Pound::from(ounce).show_value()
         } else {
-            println!("The result is {:.2}{}", ounce.value, ounce.symbol)
+            ounce.show_value()
         }
     } else if first_unit == "Pound".to_string() {
         let pound = Pound::new(unit_value, "lb".to_string());
         if second_unit == "Kilogram".to_string() {
-            Kilogram::from(pound).show_conversion_result()
+            Kilogram::from(pound).show_value()
         } else if second_unit == "Gram".to_string() {
-            Gram::from(pound).show_conversion_result()
+            Gram::from(pound).show_value()
         } else if second_unit == "Ounce".to_string() {
-            Ounce::from(pound).show_conversion_result()
+            Ounce::from(pound).show_value()
         } else {
-            println!("The result is {}lb", unit_value)
+            pound.show_value()
         }
     }
 
