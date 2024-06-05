@@ -1,7 +1,7 @@
 ## Unit converter written in Rust
 ### Todos
-- [ ] Use struct for each unit
-- [ ] Implement From trait
+- [X] Use struct for each unit
+- [X] Implement From trait
 - [ ] Proper error handling
 - [ ] Improve the UI to be user-friendly
-- [ ] Refactor into multiple files
+- [X] Refactor into multiple files
