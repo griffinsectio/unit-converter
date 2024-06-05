@@ -103,34 +103,22 @@ pub fn temperature(term: &Term) {
     let mut second_unit: String;
 
     loop {
-        let first_choice = Select::new()
-        .with_prompt("Unit you want to convert from")
-        .items(&units)
-        .default(0)
-        .interact()
-        .unwrap();
-        
-        if first_choice == 3 {
+        first_unit = get_first_unit(&units);
+
+        // If the user chose to go back, return to the main menu
+        if first_unit == "back" {
             term.clear_screen().unwrap();
             return
         }
 
-        first_unit = units[first_choice].to_string();
-        unit_value = Input::new()
-        .with_prompt("The value")
-        .interact_text()
-        .unwrap();
-    
-        let second_choice = Select::new()
-        .with_prompt("Unit you want to convert to")
-        .items(&units)
-        .default(0)
-        .interact()
-        .unwrap();
+        // get value we want to convert from of the unit
+        unit_value = get_value();
 
-        second_unit = units[second_choice].to_string();
+        second_unit = get_second_unit(&units);
     
-        if second_choice == 3 {
+        // If instead of unit, the user chose to back, then clear the terminal screen and then
+        // prompt the user for the first unit again
+        if second_unit == "back".to_string() {
             term.clear_screen().unwrap();
             continue
         }

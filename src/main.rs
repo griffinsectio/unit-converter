@@ -4,6 +4,12 @@ mod length;
 use length::*;
 mod weight;
 use weight::*;
+mod get_value;
+use get_value::*;
+mod get_first_unit;
+use get_first_unit::*;
+mod get_second_unit;
+use get_second_unit::*;
 
 use dialoguer::{Confirm, Input, Select};
 use console::Term;
